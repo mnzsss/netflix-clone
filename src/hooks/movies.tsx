@@ -1,10 +1,25 @@
-import React, { createContext, useState, useContext, useCallback } from 'react'
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useCallback,
+  useEffect
+} from 'react'
 import api from '../services/api'
 
 export interface Movie {
+  id: number
+  vote_average: number
+  number_of_seasons: number
   poster_path: string
+  first_air_date: string
   title: string
   original_title: string
+  backdrop_path: string
+  original_name: string
+  overview: string
+  genre_ids: number[]
+  genres: [{ name: string }]
 }
 
 interface MoviesState {
@@ -18,8 +33,6 @@ interface MoviesState {
 
 interface MoviesContextData {
   movies: MoviesState[]
-  loading: boolean
-  loadMovies(): void
 }
 
 const MoviesContext = createContext<MoviesContextData>({} as MoviesContextData)
@@ -30,52 +43,51 @@ export const MoviesProvider: React.FC = ({ children }) => {
       slug: 'originals',
       title: 'Originais do Netflix',
       endpoint: '/discover/tv?with_network=213',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'trending',
       title: 'Recomendados para Você',
       endpoint: '/trending/all/week',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'toprated',
       title: 'Em Alta',
       endpoint: '/movie/top_rated',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'action',
       title: 'Ação',
       endpoint: '/discover/movie?with_genres=28',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'comedy',
       title: 'Comédia',
       endpoint: '/discover/movie?with_genres=35',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'horror',
       title: 'Terror',
       endpoint: '/discover/movie?with_genres=27',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'romance',
       title: 'Romance',
       endpoint: '/discover/movie?with_genres=10749',
-      items: []
+      items: { results: [] }
     },
     {
       slug: 'documentary',
       title: 'Documentários',
       endpoint: '/discover/movie?with_genres=99',
-      items: []
+      items: { results: [] }
     }
   ])
-  const [loading, setLoading] = useState(true)
 
   const fetch = useCallback(async (endpoint, slug) => {
     const { data } = await api.get(endpoint)
@@ -95,12 +107,14 @@ export const MoviesProvider: React.FC = ({ children }) => {
     movies.map(async cat => {
       await fetch(cat.endpoint, cat.slug)
     })
+  }, [fetch, movies])
 
-    setLoading(false)
+  useEffect(() => {
+    loadMovies()
   }, [])
 
   return (
-    <MoviesContext.Provider value={{ loadMovies, movies, loading }}>
+    <MoviesContext.Provider value={{ movies }}>
       {children}
     </MoviesContext.Provider>
   )
