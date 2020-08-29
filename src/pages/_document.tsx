@@ -47,6 +47,11 @@ export default class MyDocument extends Document {
             rel="shortcut icon"
             href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico"
           />
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
 
         <body>

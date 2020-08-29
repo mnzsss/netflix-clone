@@ -1,20 +1,34 @@
 import React from 'react'
 
-import { Container } from './styles'
+import { Movie as MovieProps } from '../../hooks/movies'
+
+import { Container, ListContainer, List, Movie } from './styles'
 
 interface Props {
-  data: {
-    slug: string
-    title: string
-    items: []
+  title: string
+  items: {
+    results: MovieProps[]
   }
 }
 
-const ListMovies: React.FC<Props> = ({ data }) => {
-  console.log(data)
+const ListMovies: React.FC<Props> = ({ title, items }) => {
   return (
     <Container>
-      <h1>{data.title}</h1>
+      <h2>{title}</h2>
+
+      <ListContainer>
+        <List>
+          {items.results?.length >= 0 &&
+            items.results?.map((movie, key) => (
+              <Movie key={key}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                  alt={movie.original_title}
+                />
+              </Movie>
+            ))}
+        </List>
+      </ListContainer>
     </Container>
   )
 }

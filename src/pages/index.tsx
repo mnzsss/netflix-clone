@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       <Container>
         <Header>
           {movies.map((item, key) => (
-            <ListMovies data={item} key={key} />
+            <ListMovies title={item.title} items={item.items} key={key} />
           ))}
         </Header>
       </Container>

@@ -1,11 +1,19 @@
 import React, { createContext, useState, useContext, useCallback } from 'react'
 import api from '../services/api'
 
+export interface Movie {
+  poster_path: string
+  title: string
+  original_title: string
+}
+
 interface MoviesState {
   slug: string
   title: string
   endpoint: string
-  items: []
+  items: {
+    results: Movie[]
+  }
 }
 
 interface MoviesContextData {
