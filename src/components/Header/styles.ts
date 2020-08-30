@@ -23,6 +23,10 @@ export const Container = styled.header<ContainerProps>`
     width: auto;
     height: 40px;
   }
+
+  @media (max-width: 760px) {
+    padding: 0 30px;
+  }
 `
 
 export const User = styled.div`

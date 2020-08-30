@@ -112,6 +112,41 @@ export const Container = styled.div<ContainerProps>`
       }
     }
   }
+
+  @media (max-width: 760px) {
+    height: 80vh;
+
+    .backdrop-effect {
+      &-infos {
+        padding: 70px 30px 150px 30px;
+
+        h1 {
+          font-size: 40px;
+          max-width: 100%;
+        }
+
+        .infos {
+          font-size: 16px;
+        }
+
+        > span {
+          font-size: 14px;
+          max-width: 100%;
+        }
+
+        .buttons {
+          a {
+            padding: 0.6rem 1rem 0.6rem 0.6rem;
+            font-size: 16px;
+
+            & + a {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
 `
 
 export const PlayButton = styled.a``

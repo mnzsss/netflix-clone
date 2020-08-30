@@ -27,7 +27,7 @@ const Spotlight: React.FC<Props> = ({ item }) => {
 
           <div className="infos">
             <div className="points">{item.vote_average} pontos</div>
-            <div className="year">{parsedYear}</div>
+            <div className="year">{parsedYear || ''}</div>
             <div className="seasons">
               {item.number_of_seasons} Temporada
               {item.number_of_seasons > 1 ? 's' : ''}

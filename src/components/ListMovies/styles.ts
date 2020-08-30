@@ -11,6 +11,10 @@ export const Container = styled.div`
 
   h2 {
     margin: 0 0 0 60px;
+
+    @media (max-width: 760px) {
+      margin: 0 0 0 30px;
+    }
   }
 
   &:hover {
@@ -34,11 +38,21 @@ export const Container = styled.div`
     opacity: 0;
     transition: opacity ease 0.4s;
   }
+
+  @media (max-width: 760px) {
+    button {
+      opacity: 1;
+    }
+  }
 `
 
 export const ListContainer = styled.div`
   overflow-x: hidden;
   padding-left: 60px;
+
+  @media (max-width: 760px) {
+    padding-left: 30px;
+  }
 `
 
 export const List = styled.div<ListProps>`
