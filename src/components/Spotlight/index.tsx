@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import { MdAdd } from 'react-icons/md'
+import Truncate from 'react-truncate'
 
 import { Movie } from '../../hooks/movies'
 
@@ -33,7 +34,7 @@ const Spotlight: React.FC<Props> = ({ item }) => {
             </div>
           </div>
 
-          <p> {item.overview} </p>
+          <Truncate lines={2}>{item.overview}</Truncate>
 
           <div className="buttons">
             <a href={`/watch/${item.id}`} className="watch">

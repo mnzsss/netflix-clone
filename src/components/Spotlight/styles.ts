@@ -30,6 +30,7 @@ export const Container = styled.div<ContainerProps>`
       h1 {
         font-size: 60px;
         font-weight: bold;
+        max-width: 40%;
       }
 
       .infos {
@@ -52,7 +53,7 @@ export const Container = styled.div<ContainerProps>`
         }
       }
 
-      p {
+      > span {
         margin-top: 15px;
         font-size: 20px;
         color: #999;
@@ -60,7 +61,7 @@ export const Container = styled.div<ContainerProps>`
       }
 
       .buttons {
-        margin-top: 15px;
+        margin-top: 25px;
         display: flex;
 
         a {
