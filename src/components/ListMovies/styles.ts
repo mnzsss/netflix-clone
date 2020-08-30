@@ -1,10 +1,38 @@
 import styled from 'styled-components'
 
+interface ListProps {
+  scrollList: number
+  widthTotal: number
+}
+
 export const Container = styled.div`
   margin-bottom: 20px;
+  position: relative;
 
   h2 {
     margin: 0 0 0 60px;
+  }
+
+  &:hover {
+    button {
+      opacity: 1;
+    }
+  }
+
+  button {
+    border: 0;
+    background: transparent;
+    position: absolute;
+    width: 60px;
+    height: 90%;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #14141499;
+    opacity: 0;
+    transition: opacity ease 0.4s;
   }
 `
 
@@ -13,8 +41,10 @@ export const ListContainer = styled.div`
   padding-left: 60px;
 `
 
-export const List = styled.div`
-  width: 9999999px;
+export const List = styled.div<ListProps>`
+  width: ${({ widthTotal }) => `${widthTotal}px`};
+  margin-left: ${({ scrollList }) => `${scrollList}px`};
+  transition: all ease 0.4s;
 `
 
 export const Movie = styled.div`
@@ -34,4 +64,12 @@ export const Movie = styled.div`
       transform: scale(1);
     }
   }
+`
+
+export const LeftControl = styled.button`
+  left: 0;
+`
+
+export const RightControl = styled.button`
+  right: 0;
 `
