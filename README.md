@@ -1,6 +1,8 @@
 <p align="center">
-  <img alt="Netflix Clone" src="./src/assets/logo.svg" />
+  <img width="250" alt="Netflix Clone" src="./src/assets/logo.svg" />
 </p>
+
+<br />
 
 <h1 align="center">Welcome to Netflix Clone 👋</h1>
 <p align="center">
