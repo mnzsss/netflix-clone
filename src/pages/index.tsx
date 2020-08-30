@@ -55,10 +55,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>React JS Config</title>
-      </Head>
-
       {loading && (
         <Loading>
           <img
