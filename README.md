@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="./github/preview.png" />
+  <img src="https://github.com/mnzsss/netflix-clone/blob/master/.github/preview.png?raw=true" alt="Preview" />
 </p>
 
 This repository is created to study Next.js + Styled Components using base Netflix.
