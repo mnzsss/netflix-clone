@@ -5,7 +5,7 @@ import { Movie, useMovies } from '../hooks/movies'
 
 import { ListMovies, Spotlight, Header } from '../components'
 
-import { Container } from '../styles/pages/Home'
+import { Container, Loading } from '../styles/pages/Home'
 import api from '../services/api'
 
 const Home: NextPage = () => {
@@ -58,6 +58,15 @@ const Home: NextPage = () => {
       <Head>
         <title>React JS Config</title>
       </Head>
+
+      {loading && (
+        <Loading>
+          <img
+            src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2000,c_limit/Netflix_LoadTime.gif"
+            alt="Carregando..."
+          />
+        </Loading>
+      )}
 
       <Container>
         <Header background={backgroundHeader} />

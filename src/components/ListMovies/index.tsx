@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ListMovies: React.FC<Props> = ({ title, items }) => {
-  const [scrollList, setScrollList] = useState(-400)
+  const [scrollList, setScrollList] = useState(0)
 
   const handleNextMovies = useCallback(() => {
     let x = scrollList + Math.round(window.innerWidth / 2)
