@@ -69,6 +69,18 @@ const Home: NextPage = () => {
             <ListMovies title={item.title} items={item.items} key={key} />
           ))}
         </div>
+
+        <footer>
+          <p>
+            Feito com{' '}
+            <span role="img" aria-label="Coração">
+              ♥️
+            </span>{' '}
+            por Gabriel Menezes
+          </p>
+          <p>Direitos de Imagem para Netflix</p>
+          <p>Dados pegos do site Themoviedb.org</p>
+        </footer>
       </Container>
     </>
   )
